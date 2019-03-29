@@ -1,0 +1,33 @@
+<html>
+<head>
+<style type="text/css">
+body {padding:5px;}
+li {margin:5px;}
+</style>
+</head>
+<body>
+<h1>Select parts of web pages and pdf documents that you wish to focus on in the classroom.</h1>
+<h2>Installing:</h2>
+Drag the following link onto the bookmarks bar of you browser: <a id="link" >Cropper</a>. That's all!
+<h2>Using:</h2>
+<ol>
+<li>
+Navigate to a web page (or drag a pdf file to your browser) and click the 'Cropper' button on your bookmarks bar.
+</li><li>
+A 'select' button now appears in the upper left corner. Clicking it will turn on or off the selection mode.
+</li><li>
+You can now select a part of the page. Now only the part you selected will be visible.
+</li><li>
+The selected part can be dragged around the screen.
+</li><li>
+Pressing the 'X' button will cancel your selection.
+</li><li>
+Pressing the 'crop' button enables you to reshape your selection.
+</li>
+
+<script>
+document.getElementById('link').href = 'javascript:'+
+'(function(){function t(t,e){for(let i in e)t.style[i]=e[i]}function e(t){t.style.display="none"}function i(t){t.style.display=""}const n=document;n.gebi=n.getElementById,n.ce=n.createElement;const o=n.body;o.ondragstart=(()=>!1),o.style.position="relative";let s=n.ce("div");t(s,{position:"fixed",top:"10px",left:"10px",zIndex:1e6}),s.innerHTML=`<button id="select" >select</button><button id="clear"> x </button><button id="crop">crop</button>`;let l=n.ce("div");t(l,{zIndex:1e6}),o.appendChild(l),o.appendChild(s);const a=n.gebi("select"),r=n.gebi("clear");e(r);const c=n.gebi("crop");let p,d,h,u,g,b,f,x,m,y,w,v,k,S;function $(t,e){const i=e%4==1?"":e<2||e>4?"w":"e",n=e%4==3?"":e<3?"n":"s";return`<div id="${i||0}${n||0}" style="position:absolute;background:gray;border:solid 1px black;width:${i?"10px":"100%"};height:${n?"10px":"100%"};${"w"==i?"left":"right"}:-${i?12:1}px;${"n"==n?"top":"bottom"}:-${n?12:1}px;cursor:${i?n?n+i:"ew":"ns"}-resize;"></div>`}function C(e){let i=e.pageX,n=e.pageY;switch(p){case"select":case"crop":k&&k.updateDragPosition(i),S&&S.updateDragPosition(n);break;case"move":t(o,{left:(w=i-h+m)+"px",top:(v=n-u+y)+"px"})}}function D(t){switch(o.onmousemove=null,o.onmouseup=null,k&&(g=k.start)&&(f=k.length),S&&(b=S.start)&&(x=S.length),k=S=null,p){case"select":p="move",m=y=0,d.style.boxShadow="black 0 0 0 10000px",i(c);break;case"crop":p="move";break;case"move":m=w,y=v}}e(c),t(l,{position:"absolute",top:0,left:0,width:"100%",height:"100%",display:"none"}),e(crop),l.onmousedown=function(e){switch(o.onmousemove=C,o.onmouseup=D,h=e.pageX,u=e.pageY,p){case"select":(d=n.ce("div")).innerHTML=`<div style="display:none;cursor:grab;">${Array(8).fill(1).map($).join("")}</div>`,l.appendChild(d),t(d,{position:"absolute",border:"solid 1px gray",left:h+"px",top:u+"px",width:0,height:0}),k=new L(d,!0,h,0,h,!1),S=new L(d,!1,u,0,u,!1);break;case"move":if(e.target!=d){p="crop";let t=e.target.id,i=t[0],n=t[1];"0"!=i&&(k=new L(d,!0,g,f,h,"w"==i)),"0"!=n&&(S=new L(d,!1,b,x,u,"n"==n))}}},a.onclick=function(){l.style.display="block",e(a),i(r),p="select"},r.onclick=function(){l.innerHTML="",t(o,{left:0,top:0}),p="select",e(r),i(a),e(c),e(l),E=!1,t(c,{backgroundColor:""})};let E=!1;c.onclick=function(){(E=!E)?i(d.firstChild):e(d.firstChild),t(c,{backgroundColor:E?"blue":""})};class L{constructor(t,e,i,n,o,s){Object.assign(this,{elem:t,isX:e,initialStart:i,initialLength:n,dragStartPosition:o,isStartDrag:s,initialEnd:i+n,start:i,length:n})}updateDragPosition(e){let i=e-this.dragStartPosition;this.isStartDrag&&(i*=-1);let n=this.initialLength+i;this.start=n<0?this.isStartDrag?this.initialEnd:this.initialStart+n:this.isStartDrag?this.initialEnd-n:this.initialStart,this.length=Math.abs(n),t(this.elem,this.isX?{left:this.start+"px",width:this.length+"px"}:{top:this.start+"px",height:this.length+"px"})}}})()';
+</script>
+</body>
+</html>
