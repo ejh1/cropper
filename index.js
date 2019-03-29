@@ -18,7 +18,7 @@
 	body.style.position = 'relative';
 	let btns = D.ce('div');
 	setStyle(btns, {position:'fixed',top:'10px',left:'10px',zIndex:1000000});
-	btns.innerHTML = '<button id="select" >select</button><button id="clear"> x </button><button id="crop">crop</button>';
+	btns.innerHTML = `<button id="select" >select</button><button id="clear"> x </button><button id="crop">crop</button>`;
 	let crp = D.ce('div');
 	setStyle(crp, {zIndex:1000000});
 	body.appendChild(crp);
