@@ -18,7 +18,7 @@
 	body.style.position = 'relative';
 	let btns = D.ce('div');
 	setStyle(btns, {position:'fixed',top:'10px',left:'10px',zIndex:1000000});
-	btns.innerHTML = `<button id="select" >select</button><button id="clear"> x </button><button id="crop">crop</button>`;
+	btns.innerHTML = `<button id="select" style="transform:scale(10);transform-origin:top left;transition-property:transform;transition-duration:1s;">select</button><button id="clear"> x </button><button id="crop">crop</button>`;
 	let crp = D.ce('div');
 	setStyle(crp, {zIndex:1000000});
 	body.appendChild(crp);
@@ -123,6 +123,7 @@
 		cropping? show(selection.firstChild) : hide(selection.firstChild);
 		setStyle(cropBtn, {backgroundColor:cropping? 'blue':''});
 	}
+	setTimeout(() => setStyle(selBtn, {transform:''}), 10);
 	class dynamicDim {
 		constructor(elem, isX, initialStart, initialLength, dragStartPosition, isStartDrag) {
 			Object.assign(this, {elem, isX, initialStart, initialLength, dragStartPosition, isStartDrag,
